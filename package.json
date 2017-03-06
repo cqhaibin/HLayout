@@ -1,0 +1,25 @@
+{
+  "name": "hlayout",
+  "version": "1.0.0",
+  "description": "hlayout",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cqhaibin/HLayout.git"
+  },
+  "keywords": [
+    "hlayout"
+  ],
+  "author": "samLong",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cqhaibin/HLayout/issues"
+  },
+  "homepage": "https://github.com/cqhaibin/HLayout#readme",
+  "dependencies": {
+    "sortablejs": "^1.5.1"
+  }
+}

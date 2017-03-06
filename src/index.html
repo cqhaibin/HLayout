@@ -1,0 +1,44 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrap">
+        <div id="wrapa">
+            <div class="head">wrapa</div>
+            <ul class="wrapa-list">
+                <li>one</li>
+                <li>two</li>
+                <li>thr</li>
+                <li>four</li>
+            </ul>
+        </div>
+        <div id="wrapb">
+            <div class="head">wrapb</div>
+            <ul class="wrapb-list">
+                <li>一</li>
+                <li>二</li>
+                <li>三</li>
+                <li>四</li>
+            </ul>
+        </div>
+
+    </div>
+    <script src="../node_modules/sortablejs/sortable.js" type="text/javascript"></script>
+    <script>
+
+        var wa = document.getElementById('wrap');
+        var waWrapSort = new Sortable(wa);
+
+        var waList = document.getElementsByClassName('wrapa-list')[0];
+        var waSort = new Sortable(waList,{
+            group: 'grouptest'
+        });
+        var wbList = document.getElementsByClassName('wrapb-list')[0];
+        var wbSort = new Sortable(wbList,{
+            group: 'grouptest'
+        });
+    </script>
+</body>
+</html>
