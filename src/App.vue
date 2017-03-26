@@ -1,10 +1,14 @@
 <template>
     <div>
-        App.vue
+        <Layout></Layout>
     </div>
 </template>
 <script>
+    import core from './core'
     export default {
-        name: 'app'
+        name: 'app',
+        components:{
+            Layout: core.Layout
+        }
     }
 </script>

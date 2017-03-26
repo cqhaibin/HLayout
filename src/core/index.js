@@ -1,1 +1,5 @@
-import sortable from 'sortablejs'
+import Layout from './Layout';
+
+export default {
+    Layout: Layout
+}
