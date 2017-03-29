@@ -17,7 +17,15 @@
         mounted: function(){
             var list = this.$refs.sourceList;
             this.sortableHander = new Sortable(list,{
-                group: 'app'
+                group: {
+                    name: 'app',
+                    pull: 'clone',
+                    put: false
+                },
+                sort: false,
+                onStart:function(evt){
+                    debugger;
+                }
             });
         }
     }

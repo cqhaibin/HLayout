@@ -14,7 +14,11 @@
         mounted () {
             var map = this.$refs.appMap;
             this.sortableHander = new Sortable(map,{
-                group: 'app'
+                group: {
+                    name: 'app',
+                    pull: false,
+                    put: true,
+                }
             });
         }
     }
