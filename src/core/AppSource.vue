@@ -23,9 +23,7 @@
                     put: false
                 },
                 sort: false,
-                onStart:function(evt){
-                    debugger;
-                }
+                dragClass: 'sortable-drag'
             });
         }
     }
@@ -38,5 +36,23 @@
     .list-item{
         margin: 0px;
         padding: 10px;
+    }
+    .sortable-drag{
+        background: #666666;
+        opacity: 0.5;
+        color: #fff;
+        display: inline-block;
+        border-radius: 2px;
+        padding: 4px 20px;
+    }
+    .sortable-drag:after{
+        content: '';
+        display: inline-block;
+        width: 0px;
+        height: 0px;
+        margin-left: 5px; 
+        border-left: 8px solid red;
+        border-top: 4px solid transparent;
+        border-bottom: 4px solid transparent;
     }
 </style>

@@ -18,6 +18,12 @@
                     name: 'app',
                     pull: false,
                     put: true,
+                },
+                onAdd: function(){
+                    console.log('add' + arguments);
+                },
+                onUpdate: function(){
+                    console.log('update' + arguments)
                 }
             });
         }
