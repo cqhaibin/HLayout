@@ -19,11 +19,18 @@
                     pull: false,
                     put: true,
                 },
+                ghostClass: 'ghost-a',
                 onAdd: function(){
                     console.log('add' + arguments);
                 },
                 onUpdate: function(){
                     console.log('update' + arguments)
+                },
+                onMove: function(evt, originEvent){
+                    debugger;
+                },
+                onFilter: function(evt){
+                    debugger;
                 }
             });
         }
@@ -32,5 +39,14 @@
 <style>
     .appMap{
         height: 100%;
+    }
+    .appMap .sortable-ghost{
+        height: 100px !important;
+        background: red !important;
+        list-style-type: none;
+    }
+    .appMap .list-item{
+        height: 50px;
+        background: gray;
     }
 </style>
