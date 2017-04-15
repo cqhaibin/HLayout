@@ -1,6 +1,7 @@
 <template>
-    <div class="appMap" ref="appMap" >
-    </div>
+    <ul class="appMap" ref="appMap" >
+        <li class="list-item" v-for="item in realList" >{{item.title}}</li>
+    </ul>
 </template>
 <script>
     import provider from '../mixs/sortableDecorate';
@@ -8,7 +9,8 @@
         name: 'AppMap',
         data: function(){
             return {
-                sortableHandle: null
+                sortableHandle: null,
+                realList: []
             }
         },
         mounted () {
@@ -26,7 +28,6 @@
         },
         methods:{
             onDragAdd:function(evt){
-                debugger;
             }
         }
     }
@@ -34,6 +35,7 @@
 <style>
     .appMap{
         height: 100%;
+        list-style-type: none;
     }
     .appMap .list-item{
         box-sizing: border-box;
@@ -41,7 +43,6 @@
     .appMap .sortable-ghost{
         height: 100px !important;
         background: red !important;
-        list-style-type: none;
     }
     .appMap .list-item{
         width: 100%;
