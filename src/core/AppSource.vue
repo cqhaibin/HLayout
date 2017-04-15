@@ -1,8 +1,6 @@
 <template>
     <ul class="list" ref="sourceList" >
-        <li class="list-item">标签</li>
-        <li class="list-item">输入框</li>
-        <li class="list-item">按钮</li>
+        <li class="list-item" v-for="im in data" >{{im.text}}</li>
     </ul>
 </template>
 <script>
@@ -11,7 +9,8 @@
         name: 'AppSource',
         data: function(){
             return {
-                sortableHandle:null
+                sortableHandle:null,
+                data: [{"text":"标签"},{"text":"输入框"},{"text":"按钮"}]
             }
         },
         mounted: function(){
@@ -25,7 +24,7 @@
                 sort: false,
                 dragClass: 'sortable-drag'
             };
-            this.sortableHandle = provider.createSortable(list,options);
+            this.sortableHandle = provider.createSortable(list,options,this);
         }
     }
 </script>

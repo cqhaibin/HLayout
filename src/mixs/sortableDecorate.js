@@ -23,7 +23,7 @@ class SortableDecorate {
      */
     constructor(el, options, cxt){
         this.cxt = cxt;
-        this.sortable = this.createSortable(options);
+        this.sortable = this.createSortable(el, options);
     }
 
     /**
@@ -32,7 +32,10 @@ class SortableDecorate {
      */
     delegateAndEmit(eventName){
         return (eventData) =>{
-            this.cxt['onDrag' + eventName](eventData);
+            let eventKey = 'onDrag' + eventName;
+            if(this.cxt[eventKey]){
+                this.cxt[eventKey](eventData);
+            }
         };
     }
     /**
@@ -54,7 +57,7 @@ class SortableDecorate {
             eventsAdded['on' + elt] = this.delegateAndEmit(elt);
         });
         eventsToEmit.forEach(elt=>{
-            eventsAdded['on' + elt] = emit.bind(this,elt);
+            eventsAdded['on' + elt] = this.emit.bind(this,elt);
         });
         let opts = Object.assign({}, options, eventsAdded);
         return new Sortable(el, opts);
@@ -66,9 +69,10 @@ export default {
      * 创建与vue结合的sortable的实例
      * @param el 实现sortable的DOM元素
      * @param options sortable的配置参数
+     * @param cxt vue组件实例
      */
-    createSortable: function(el, options){
-        var sortableDective = new SortableDecorate(el, options);
+    createSortable: function(el, options, cxt){
+        var sortableDective = new SortableDecorate(el, options, cxt);
         return sortableDective.sortable;
     }
 }
