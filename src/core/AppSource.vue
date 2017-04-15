@@ -6,17 +6,17 @@
     </ul>
 </template>
 <script>
-    import Sortable from 'sortablejs';
+    import provider from '../mixs/sortableDecorate';
     export default {
         name: 'AppSource',
         data: function(){
             return {
-                sortableHander:null
+                sortableHandle:null
             }
         },
         mounted: function(){
             var list = this.$refs.sourceList;
-            this.sortableHander = new Sortable(list,{
+            let options = {
                 group: {
                     name: 'app',
                     pull: 'clone',
@@ -24,7 +24,8 @@
                 },
                 sort: false,
                 dragClass: 'sortable-drag'
-            });
+            };
+            this.sortableHandle = provider.createSortable(list,options);
         }
     }
 </script>
