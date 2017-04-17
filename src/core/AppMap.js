@@ -10,6 +10,11 @@ let opt = {
             value: 'adsf'
         }
     },
+    computed: {
+      value(){
+          return this.value + 'cp';
+      }  
+    },
     mounted () {
         debugger
         var map = this.$refs.appMap;
@@ -34,20 +39,27 @@ let opt = {
     },
     render (createElement, context) {
         debugger
-        let wrap;
-        wrap = createElement('ul',[
-            createElement('li',{
-                'class':{
-                    'list-item':true
-                }
-            })
-        ],{
+        let wrap, self = this;
+        wrap = createElement('ul',{
             'class':{
                 'appMap': true
             },
             ref: 'appMap'
-        })
+        },[
+            createElement('li',{
+                'class':{
+                    'list-item':true
+                }
+            },[createElement('ElInput',{
+                props:{
+                    'value': self.value
+                }
+            })])
+        ])
         return wrap;
+    },
+    beforeUpdate () {
+        debugger
     }
 }
 export default opt;
