@@ -22,7 +22,8 @@
   "dependencies": {
     "element-ui": "^1.2.8",
     "sortablejs": "^1.5.1",
-    "vue": "^2.2.5"
+    "vue": "^2.2.5",
+    "vuex": "^2.3.0"
   },
   "devDependencies": {
     "babel-core": "^6.24.0",

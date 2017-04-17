@@ -13,7 +13,7 @@ let opt = {
     computed: {
       value(){
           return this.value + 'cp';
-      }  
+      }
     },
     mounted () {
         debugger
@@ -52,7 +52,7 @@ let opt = {
                 }
             },[createElement('ElInput',{
                 props:{
-                    'value': self.value
+                    'value': self.$store.state.value
                 }
             })])
         ])

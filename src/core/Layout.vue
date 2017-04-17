@@ -9,16 +9,18 @@
             <AppSource></AppSource>
         </div>
         <div class="layout-right">
-            right
+            <Props></Props>
         </div>
     </div>
 </template>
 <script>
     import AppSource from './AppSource';
+    import Props from './Props';
     export default {
         name: 'Layout',
         components: {
-            AppSource
+            AppSource,
+            Props
         }
     }
 </script>
