@@ -1,6 +1,6 @@
 <template>
     <ul class="list" ref="sourceList" >
-        <li class="list-item" v-for="im in data" >{{im.text}}</li>
+        <li class="list-item" v-for="im in data" :data-type="im.type">{{im.text}}</li>
     </ul>
 </template>
 <script>
@@ -10,7 +10,7 @@
         data: function(){
             return {
                 sortableHandle:null,
-                data: [{"text":"标签"},{"text":"输入框"},{"text":"按钮"}]
+                data: [{"text":"标签", type:'Tag'},{"text":"输入框", type: "Input"},{"text":"按钮", type: "Button"}]
             }
         },
         mounted: function(){
@@ -36,6 +36,10 @@
     .list-item{
         margin: 0px;
         padding: 10px;
+        width: 100%;
+        height: 20px;
+        margin: 5px 0px;
+        background: red;
     }
     .sortable-drag{
         background: #666666;
@@ -43,7 +47,6 @@
         color: #fff;
         display: inline-block;
         border-radius: 2px;
-        padding: 4px 20px;
     }
     .sortable-drag:after{
         content: '';

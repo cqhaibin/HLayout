@@ -15,12 +15,10 @@
 </template>
 <script>
     import AppSource from './AppSource';
-    import AppMap from './AppMap';
     export default {
         name: 'Layout',
         components: {
-            AppSource,
-            AppMap
+            AppSource
         }
     }
 </script>
