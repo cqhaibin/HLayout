@@ -15,7 +15,7 @@
         methods: {
             setValue(){
                 debugger
-                this.$store.commit('setValue',this.value);
+                this.$store.commit('setValue',{ index:0, value:this.value});
             }
         }
     }

@@ -1,11 +1,14 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 let state = {
-    value: 'vuexsss'
+    components:[]
 }
 let mutations = {
-    setValue(state, value){
-        state.value = value;
+    addItem(state, item){
+        state.components.splice(item.index, 0, item);
+    },
+    setValue(state, item){
+        state.components[item.index].value = item.value;
     }
 }
 

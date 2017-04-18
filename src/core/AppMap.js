@@ -5,15 +5,13 @@ let opt = {
     name: 'AppMap',
     data: function(){
         return {
-            sortableHandle: null,
-            realList: [],
-            value: 'adsf'
+            sortableHandle: null
         }
-    },
+    },    
     computed: {
-      value(){
-          return this.value + 'cp';
-      }
+        vuexComps:function(){
+            return this.$store.state.components;
+        }
     },
     mounted () {
         debugger
@@ -31,31 +29,32 @@ let opt = {
     },
     methods:{
         onDragAdd:function(evt){
-            debugger
             let type = evt.item.getAttribute('data-type');
             uitls.Dom.removeNode(evt.item); 
-            this.realList.splice( evt.newIndex, 0, 'el' + type);
+            this.$store.commit('addItem', { index: evt.newIndex, type: 'El' + type, value: '' });
         }
     },
     render (createElement, context) {
         debugger
         let wrap, self = this;
+        let comps = [];
+        this.vuexComps.forEach(function(data, index){
+            comps.push( createElement('li',{
+                'class':{
+                    'list-item':true
+                }
+            },[createElement(data.type,{
+                props:{
+                    'value': data.value
+                }
+            })]));
+        });
         wrap = createElement('ul',{
             'class':{
                 'appMap': true
             },
             ref: 'appMap'
-        },[
-            createElement('li',{
-                'class':{
-                    'list-item':true
-                }
-            },[createElement('ElInput',{
-                props:{
-                    'value': self.$store.state.value
-                }
-            })])
-        ])
+        },comps);
         return wrap;
     },
     beforeUpdate () {
