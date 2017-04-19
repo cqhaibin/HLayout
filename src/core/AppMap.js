@@ -31,7 +31,7 @@ let opt = {
         onDragAdd:function(evt){
             let type = evt.item.getAttribute('data-type');
             uitls.Dom.removeNode(evt.item); 
-            this.$store.commit('addItem', { index: evt.newIndex, type: 'El' + type, value: '' });
+            this.$store.commit('addItem', { index: evt.newIndex, type: 'El' + type });
         }
     },
     render (createElement, context) {
@@ -44,9 +44,7 @@ let opt = {
                     'list-item':true
                 }
             },[createElement(data.type,{
-                props:{
-                    'value': data.value
-                }
+                props:data.props
             })]));
         });
         wrap = createElement('ul',{

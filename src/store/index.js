@@ -1,14 +1,18 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import PropsProvider from '../core/props';
 let state = {
     components:[]
 }
 let mutations = {
     addItem(state, item){
+        let props = PropsProvider.generalProps(item.type);
+        item.props = props;
         state.components.splice(item.index, 0, item);
     },
     setValue(state, item){
-        state.components[item.index].value = item.value;
+        debugger
+        state.components[item.index].props.value = item.value;
     }
 }
 
