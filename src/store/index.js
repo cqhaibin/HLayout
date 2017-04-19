@@ -12,7 +12,10 @@ let mutations = {
     },
     setValue(state, item){
         debugger
-        state.components[item.index].props.value = item.value;
+        state.components[item.index].props = {
+            value: item.value,
+            placeholder: 'ffff'
+        }
     }
 }
 

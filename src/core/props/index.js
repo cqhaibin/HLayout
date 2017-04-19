@@ -15,16 +15,19 @@ export default {
      * @returns Object 返回生成的Prpos对象
      */
     generalProps(type){
-        let obj = {};
-        debugger
-        Object.defineProperties(obj, {
-            value: {
-                value:''
-            },
-            placeholder: {
-                value: 'aaaa'
-            }
-        });
+        let obj = {}, props = dic.get(type)
+
+        let convertToProp = function(value){
+            return {
+                writable: true,
+                enumerable: true,
+                configurable: true,
+                value: value
+            };
+        }
+        for(var key in props){
+            Object.defineProperty(obj,key, convertToProp(props[key]));
+        }
         return obj;
     }
 }
