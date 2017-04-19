@@ -1,5 +1,6 @@
 import provider from '../mixs/sortableDecorate';
 import uitls from '../uitls';
+import controlProvider from '../controls';
 
 let opt = {
     name: 'AppMap',
@@ -43,9 +44,7 @@ let opt = {
                 'class':{
                     'list-item':true
                 }
-            },[createElement(data.type,{
-                props:data.props
-            })]));
+            },controlProvider.generalComponent(createElement,data)));
         });
         wrap = createElement('ul',{
             'class':{

@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import PropsProvider from '../core/props';
+import PropsProvider from './props';
 let state = {
     components:[]
 }
