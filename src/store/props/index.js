@@ -1,11 +1,16 @@
 /**
  * 配置参数生成器
+ * 需要区分类型：
+ * 1. props类型的；
+ * 2. 非props类型的
  */
 import input from './input';
+import button from './button';
 let dic = new Map();
 
 let initgeneral = function(){
     dic.set('ElInput', input);
+    dic.set('ElButton', button);
 }();
 
 export default {
@@ -16,7 +21,6 @@ export default {
      */
     generalProps(type){
         let obj = {}, props = dic.get(type)
-
         let convertToProp = function(value){
             return {
                 writable: true,

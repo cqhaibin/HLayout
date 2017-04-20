@@ -5,9 +5,11 @@
  * 2. 控件在设计器界面的属性面板组件
  */
 import Input from './input';
+import Button from './button';
 
 let dic = new Map();
 dic.set("ElInput", Input );
+dic.set('ElButton', Button);
 
 export default{
     /**
