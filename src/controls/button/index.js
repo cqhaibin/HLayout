@@ -3,7 +3,7 @@
  */
 import ButtonProp from './prop';
 export default {
-    ButtonProp,
+    Prop: ButtonProp,
     generalComponent:function(createElement, data){
         return [createElement(data.type,{
             props: data.props

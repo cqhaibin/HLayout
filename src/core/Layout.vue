@@ -2,25 +2,31 @@
     <div class="layout-wrap" >
         <div class="layout-main">
             <div class="layout-main-inner" >
-                <AppMap></AppMap>
+                <AppMap ref="appMap"></AppMap>
             </div>
         </div>
         <div class="layout-left">
             <AppSource></AppSource>
         </div>
         <div class="layout-right">
-            <PropsPlan></PropsPlan>
+            <PropsPanel></PropsPanel>
         </div>
     </div>
 </template>
 <script>
     import AppSource from './AppSource';
-    import PropsPlan from './PropsPlan';
+    import PropsPanel from './PropsPanel';
     export default {
         name: 'Layout',
         components: {
             AppSource,
-            PropsPlan
+            PropsPanel
+        },
+        mounted () {
+            let self = this;
+            this.$refs.appMap.$on('choose',function(evt){
+                self.$store.commit('chooseComponent', evt.oldIndex);
+            });
         }
     }
 </script>

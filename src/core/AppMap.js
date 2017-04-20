@@ -28,7 +28,7 @@ let opt = {
             chosenClass: 'chosen-map'
         }, this);
     },
-    methods:{
+    methods: {
         onDragAdd:function(evt){
             let type = evt.item.getAttribute('data-type');
             uitls.Dom.removeNode(evt.item); 
@@ -36,7 +36,6 @@ let opt = {
         }
     },
     render (createElement, context) {
-        debugger
         let wrap, self = this;
         let comps = [];
         this.vuexComps.forEach(function(data, index){

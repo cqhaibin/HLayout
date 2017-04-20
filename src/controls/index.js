@@ -20,5 +20,13 @@ export default{
      */
     generalComponent:function(createElement, data){
         return dic.get(data.type).generalComponent(createElement, data);
+    },
+    /**
+     * 获取指定类型组件的属性面板
+     */
+    getPropComponent:function(type){
+        debugger
+        let comp = dic.get(type).Prop;
+        return comp;
     }
 }
