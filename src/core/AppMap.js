@@ -1,5 +1,6 @@
 import provider from '../mixs/sortableDecorate';
 import uitls from '../uitls';
+import { getKeyForType } from '../uitls';
 import controlProvider from '../controls';
 
 let opt = {
@@ -32,7 +33,7 @@ let opt = {
         onDragAdd:function(evt){
             let type = evt.item.getAttribute('data-type');
             uitls.Dom.removeNode(evt.item); 
-            this.$store.commit('addItem', { index: evt.newIndex, type: 'El' + type });
+            this.$store.commit('addItem', { index: evt.newIndex, type: getKeyForType(type) });
         }
     },
     render (createElement, context) {

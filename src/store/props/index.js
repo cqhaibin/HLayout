@@ -4,13 +4,14 @@
  * 1. props类型的；
  * 2. 非props类型的
  */
+import { Keys } from '../../uitls';
 import input from './input';
 import button from './button';
 let dic = new Map();
 
 let initgeneral = function(){
-    dic.set('ElInput', input);
-    dic.set('ElButton', button);
+    dic.set(Keys.input, input);
+    dic.set(Keys.button, button);
 }();
 
 export default {

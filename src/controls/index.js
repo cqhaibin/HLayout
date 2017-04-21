@@ -4,12 +4,13 @@
  * 1. 控件在设计器界面的组件
  * 2. 控件在设计器界面的属性面板组件
  */
+import {Keys} from '../uitls';
 import Input from './input';
 import Button from './button';
 
 let dic = new Map();
-dic.set("ElInput", Input );
-dic.set('ElButton', Button);
+dic.set(Keys.input, Input );
+dic.set(Keys.button, Button);
 
 export default{
     /**
