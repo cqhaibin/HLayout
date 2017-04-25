@@ -34,5 +34,17 @@ export default {
             Object.defineProperty(obj,key, convertToProp(props[key]));
         }
         return obj;
+    },
+    /**
+     * 根据指定类型获取相应的属性名列表（key列表）
+     * @param type 控件类型
+     */
+    getProps (type){
+        let props = dic.get(type);
+        let ret = [];
+        for(var key in props){
+            ret.push(key);
+        }
+        return ret;
     }
 }
