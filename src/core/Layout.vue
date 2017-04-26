@@ -1,43 +1,32 @@
 <template>
-    <div>        
+    <div>           
         <div class="layout-head">
             <el-button v-on:click="preview" >预览</el-button>
             <el-button type="primary" v-on:click="save" >保存</el-button>
         </div>
-        <div class="layout-wrap" >
-            <div class="layout-main">
-                <div class="layout-main-inner" >
-                    <AppMap ref="appMap"></AppMap>
-                </div>
-            </div>
-            <div class="layout-left">
-                <AppSource></AppSource>
-            </div>
-            <div class="layout-right">
-                <PropsPanel></PropsPanel>
-            </div>
+        <div class="layout-main">
+            <component :is="curComponent"></component>
         </div>
     </div>
 </template>
 <script>
-    import AppSource from './AppSource';
-    import PropsPanel from './PropsPanel';
+    import MainControl from './MainControl';
+    import Preview from './preview';
     import propsProvider from '../store/props';
     export default {
         name: 'Layout',
         components: {
-            AppSource,
-            PropsPanel
+            MainControl,
+            Preview
         },
-        mounted () {
-            let self = this;
-            this.$refs.appMap.$on('choose',function(evt){
-                self.$store.commit('chooseComponent', evt.oldIndex);
-            });
+        data () {
+            return{
+                curComponent: MainControl
+            }
         },
         methods: {
             preview:function(evt){
-
+                this.curComponent = Preview;
             },
             save:function(evt){
                 //值需要做转换
@@ -60,26 +49,3 @@
         }
     }
 </script>
-<style>
-    .layout-wrap{
-        height: 100%;
-    }
-    .layout-main{
-        width: 100%;
-        height: 100%;
-        float: left;
-    }
-    .layout-left{
-        float: left;
-        width: 200px;
-        margin-left: -100%;
-    }
-    .layout-right{
-        float: left;
-        margin-left: -200px;
-        width: 200px;
-    }
-    .layout-main-inner{
-        margin: 0px 200px;
-    }
-</style>
