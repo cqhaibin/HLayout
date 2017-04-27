@@ -11,15 +11,12 @@ let mutations = {
         item.props = props;
         state.components.splice(item.index, 0, item);
     },
-    setValue(state, item){
-        debugger
-        state.components[item.index].props = {
-            value: item.value,
-            placeholder: 'ffff'
-        }
-    },
     chooseComponent(state, index){
         state.currentCompnent = state.components[index];
+    },
+    changeOfPosition(state, param){
+        let comps = state.components;
+        comps.splice(param.newIndex,0, comps.splice(param.oldIndex,1)[0]);
     }
 }
 

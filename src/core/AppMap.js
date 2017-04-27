@@ -34,8 +34,12 @@ let opt = {
             let type = evt.item.getAttribute('data-type');
             uitls.Dom.removeNode(evt.item); 
             this.$store.commit('addItem', { index: evt.newIndex, type: getKeyForType(type) });
+        },
+        onDragUpdate:function(evt){
+            debugger
+            this.$store.commit('changeOfPosition',{ oldIndex: evt.oldIndex, newIndex: evt.newIndex });
         }
-    },
+    },  
     render (createElement, context) {
         let wrap, self = this;
         let comps = [];
@@ -53,9 +57,6 @@ let opt = {
             ref: 'appMap'
         },comps);
         return wrap;
-    },
-    beforeUpdate () {
-        debugger
     }
 }
 export default opt;
