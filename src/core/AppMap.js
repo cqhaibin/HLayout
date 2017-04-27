@@ -36,18 +36,19 @@ let opt = {
             this.$store.commit('addItem', { index: evt.newIndex, type: getKeyForType(type) });
         },
         onDragUpdate:function(evt){
-            debugger
             this.$store.commit('changeOfPosition',{ oldIndex: evt.oldIndex, newIndex: evt.newIndex });
         }
     },  
     render (createElement, context) {
+        debugger
         let wrap, self = this;
         let comps = [];
         this.vuexComps.forEach(function(data, index){
             comps.push( createElement('li',{
                 'class':{
                     'list-item':true
-                }
+                },
+                key: data.index
             },controlProvider.generalComponent(createElement,data)));
         });
         wrap = createElement('ul',{
