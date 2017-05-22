@@ -64,5 +64,23 @@ let getters = {
     }
 };
 let mutations = {
-    
-} 
+    [keys.addComponent] ( state, { component, containIndex }){
+        state.collection[containIndex].push(component);
+        state.current = component;
+    },
+    [keys.addContain] (state, contain){
+        state.collection.push(contain);
+    },
+    [keys.removeComponent] (state, component){
+        state.collection[component.contain.index].splice(component.index,1);
+    },
+    [keys.removeContain] (state, contain){
+        state.collection.splice(contain.index, 1);
+    }
+};
+
+export default {
+    state,
+    getters,
+    mutations
+}
