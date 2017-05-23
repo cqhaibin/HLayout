@@ -5,6 +5,7 @@ class Component {
         this.id = opt.id;
         this.contain = opt.contain;
         this.index = opt.index;
+        this.colNum = opt.colNum;
         this.attributes = opt.attributes;
     }
 }
