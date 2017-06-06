@@ -2,7 +2,7 @@
     <div class="layout-wrap" >
         <div class="layout-main">
             <div class="layout-main-inner" >
-                <AppMap ref="appMap"></AppMap>
+                <Layout ref="appMap"></Layout>
             </div>
         </div>
         <div class="layout-left">
@@ -17,11 +17,13 @@
     import AppSource from './AppSource';
     import PropsPanel from './PropsPanel';
     import propsProvider from '../store/props';
+    import Layout from '../layout/layout';
     export default {
         name: 'Main',
         components: {
             AppSource,
-            PropsPanel
+            PropsPanel,
+            Layout
         },
         mounted () {
             let self = this;

@@ -10,7 +10,10 @@
         data: function(){
             return {
                 sortableHandle:null,
-                data: [{"text":"标签", type:'Tag'},{"text":"输入框", type: "Input"},{"text":"按钮", type: "Button"}]
+                data: [{"text":"标签", type:'Tag'},{"text":"输入框", type: "Input"},
+                {"text":"按钮", type: "Button"},{"text":"一列", type: "layout", opt:{col:1}},
+                {"text":"二列", type: "layout", opt:{col:2}},
+                {"text":"三列", type: "layout", opt:{col:3}}]
             }
         },
         mounted: function(){
