@@ -16,12 +16,11 @@ let opt = {
         }
     },
     mounted () {
-        debugger
         var map = this.$refs.appMap;
         this.sortableHandle = provider.createSortable(map,
         {
             group: {
-                name: 'app',
+                name: 'factory',
                 pull: false,
                 put: true,
             },

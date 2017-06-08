@@ -8,6 +8,7 @@
     export default {
         name: 'AppSource',
         data: function(){
+            //布局容器、应用需要分组对待
             return {
                 sortableHandle:null,
                 data: [{"text":"标签", type:'Tag'},{"text":"输入框", type: "Input"},
@@ -20,7 +21,7 @@
             var list = this.$refs.sourceList;
             let options = {
                 group: {
-                    name: 'app',
+                    name: 'factory',
                     pull: 'clone',
                     put: false
                 },

@@ -21,7 +21,7 @@
             var _wrap = this.$refs.contain;   
             this.contain = provider.createSortable(_wrap, {
                 group: {
-                    name: 'contain',
+                    name: 'factory',
                     pull: false,
                     push: true
                 }
@@ -41,6 +41,7 @@
         methods: {
             onDragAdd (event){
                 //放置
+                debugger
             }
         }
     }

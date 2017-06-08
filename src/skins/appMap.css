@@ -17,3 +17,6 @@
 .appMap .ghost-map, .appMap .chosen-map{
     background:red;
 }
+.ui-contain-wrap{
+    min-height: 100px;
+}

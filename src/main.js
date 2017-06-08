@@ -19,5 +19,5 @@ var app = new Vue({
     template: '<App/>',
     components:{App}
 });
-layout.install({service: Service, app}); //加载业务系统
+new layout().install({service: Service, $store: app.$store}); //加载业务系统
 app.$mount('#app');
