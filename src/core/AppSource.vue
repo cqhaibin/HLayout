@@ -8,13 +8,13 @@
     export default {
         name: 'AppSource',
         data: function(){
-            //布局容器、应用需要分组对待
+            //布局容器、应用需要分组对待，优化成store提供模式
             return {
                 sortableHandle:null,
                 data: [{"text":"标签", type:'Tag'},{"text":"输入框", type: "Input"},
-                {"text":"按钮", type: "Button"},{"text":"一列", type: "layout", opt:{col:1}},
-                {"text":"二列", type: "layout", opt:{col:2}},
-                {"text":"三列", type: "layout", opt:{col:3}}]
+                {"text":"按钮", type: "Button"},{"text":"一列", type: "layoutOne", opt:{col:1}},
+                {"text":"二列", type: "layoutTwo", opt:{col:2}},
+                {"text":"三列", type: "layoutThr", opt:{col:3}}]
             }
         },
         mounted: function(){

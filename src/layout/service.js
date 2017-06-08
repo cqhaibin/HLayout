@@ -5,6 +5,11 @@ import {generalGuid} from '../uitls';
 import Type from './type';
 
 class ServiceCore {
+    constructor(cxt, keys){
+        this._cxt = cxt;
+        this._store = this._cxt.$store;
+        this._keys = keys;
+    }
     addContain (opt, parent){
         let isRoot = parent ? false: true;
         opt.parent = parent;
@@ -12,12 +17,13 @@ class ServiceCore {
         opt.id = generalGuid();
         var contain = new Contain(opt);
         contain.root = isRoot ? contain : null;
+        this._store.commit(this._keys.addContain, contain);
     }
 }
 
 class Service {
-    constructor (){
-        this.core = new ServiceCore();
+    constructor (cxt, keys){
+        this._core = new ServiceCore(cxt, keys);
     }
     /**
      * 添加一个容器或组件
@@ -29,7 +35,7 @@ class Service {
      */
     add (opt, parent){
         if(opt.type == Type.CONTAIN){
-            this.core.addContain(opt);
+            this._core.addContain(opt);
         }
     }
 }

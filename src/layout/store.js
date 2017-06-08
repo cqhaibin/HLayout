@@ -2,7 +2,7 @@
 import Componet from './model/component';
 import Contain from './model/contain';
 
-let keys = {
+ export let keys = {
     /**
      * 添加一个容器
      */
