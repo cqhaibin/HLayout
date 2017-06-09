@@ -46,6 +46,7 @@
                     'layoutTwo': 2,
                     'layoutThr': 3
                 };
+                uitls.Dom.getDataOfDom(event.item);
                 var type = event.item.getAttribute('data-type');
                 //放置
                 debugger

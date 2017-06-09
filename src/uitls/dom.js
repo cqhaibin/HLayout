@@ -17,6 +17,21 @@ class Dom{
     static addNode(parentNode,node){
         parentNode.append(node);
     }
+
+    /**
+     * 获取dom元素所有的data属性内容
+     * @param dom DOM元素
+     */
+    static getDataOfDom(dom){
+        var _attrs = Array.prototype.slice.apply(dom.attributes);
+        var _rets = Object.create({});
+        _attrs.map(function(item){
+            if(item.name.slice(0,5) == 'data-'){
+                _rets[item.name] = item;
+            }
+        });
+        return _rets;
+    }
 }
 
 export default Dom;
